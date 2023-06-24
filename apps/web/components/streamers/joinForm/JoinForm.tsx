@@ -2,11 +2,11 @@
 
 import { ErrorMessage, Formik } from 'formik';
 import { Input, Button, Textarea } from '@material-tailwind/react';
-import { Container } from '../inc/Container';
 import { useJoinForm } from './useJoinForm';
 import { joinFormSchema } from './joinFormSchema';
 import { ValidationError } from './ValidationError';
 import { SelectPlatform } from './selectPlatform/SelectPlatform';
+import { Container } from '../../inc/Container';
 
 export const JoinForm = () => {
 	const { submit } = useJoinForm();

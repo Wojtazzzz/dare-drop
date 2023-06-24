@@ -1,10 +1,10 @@
 [
 	{
-		"label": "Home",
-		"link": "/"
+		"label": "Join us",
+		"link": "/streamers#join-us"
 	},
 	{
-		"label": "Join us",
-		"link": "/join-us"
+		"label": "Streamers",
+		"link": "/streamers#our-streamers"
 	}
 ]

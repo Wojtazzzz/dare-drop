@@ -6,7 +6,7 @@ type ValidationErrorProps = {
 
 export const ValidationError = ({ children }: ValidationErrorProps) => {
 	return (
-		<div className="mt-0.5">
+		<div className="ml-1 mt-0.5">
 			<span className="text-sm font-medium tracking-wide text-red-400">
 				{children}
 			</span>

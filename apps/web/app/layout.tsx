@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 import { Navigation } from '../components/inc/nav/Nav';
 import '../styles/global.css';
-import { Providers } from '../components/Providers';
+import { Providers } from '../components/inc/Providers';
+import { Footer } from '../components/inc/Footer';
 
 type RootLayoutProps = {
 	children: ReactNode;
@@ -10,7 +11,7 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en">
-			<body className="bg-theme-base">
+			<body className="scroll-smooth bg-theme-base">
 				<div className="mb-8">
 					<Navigation />
 				</div>
@@ -18,6 +19,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				<main>
 					<Providers>{children}</Providers>
 				</main>
+
+				<Footer />
 			</body>
 		</html>
 	);

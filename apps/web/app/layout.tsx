@@ -10,13 +10,13 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
-		<html lang="en">
-			<body className="scroll-smooth bg-theme-base">
+		<html lang="en" className="scroll-smooth">
+			<body className="bg-theme-base">
 				<div className="mb-8">
 					<Navigation />
 				</div>
 
-				<main>
+				<main className="min-h-[45vh]">
 					<Providers>{children}</Providers>
 				</main>
 

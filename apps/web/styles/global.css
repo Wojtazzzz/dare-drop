@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Accessibility */
+@layer base {
+	button,
+	a {
+		@apply !rounded-md focus-visible:!outline-dashed focus-visible:!outline-2 focus-visible:!outline-primary-base;
+	}
+}
+
+@layer base {
+	textarea {
+		@apply focus-visible:shadow-none;
+	}
+}
+
+@layer base {
+	button,
+	select {
+		@apply outline-offset-[3px];
+	}
+}

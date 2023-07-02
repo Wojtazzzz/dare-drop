@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import type { Platform } from '../../utils/types';
+import type { Platform } from '../../../utils/types';
 
 export const joinFormSchema = Yup.object().shape({
 	name: Yup.string()

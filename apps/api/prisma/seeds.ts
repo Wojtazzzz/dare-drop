@@ -7,27 +7,26 @@ const streamers_data = [
   {
     name: 'Ibai',
     platform: 'twitch',
+    image: null,
     description: 'Lorem ipsum dolot sit amet...',
-    image:
-      'https://static-cdn.jtvnw.net/jtv_user_pictures/asmongold-profile_image-f7ddcbd0332f5d28-300x300.png',
   },
   {
     name: 'Fextralife',
     platform: 'tiktok',
+    image: null,
     description: 'Lorem ipsum dolot sit amet...',
-    image:
-      'https://static-cdn.jtvnw.net/jtv_user_pictures/asmongold-profile_image-f7ddcbd0332f5d28-300x300.png',
   },
   {
     name: 'kingsleague',
     platform: 'youtube',
+    image: null,
     description: 'Lorem ipsum dolot sit amet...',
-    image:
-      'https://static-cdn.jtvnw.net/jtv_user_pictures/asmongold-profile_image-f7ddcbd0332f5d28-300x300.png',
   },
 ] satisfies Omit<Streamer, 'id'>[];
 
 async function main() {
+  await prisma.streamer.deleteMany({});
+
   streamers_data.forEach(async (streamer_data) => {
     await prisma.streamer.create({
       data: streamer_data,

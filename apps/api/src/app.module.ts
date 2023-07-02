@@ -1,11 +1,9 @@
 import { Module } from '@nestjs/common';
-import { StreamersController } from './streamers/streamers.controller';
-import { StreamersService } from './streamers/streamers.service';
-import { PrismaService } from './prisma.service';
+import { StreamersModule } from './streamers/streamers.module';
 
 @Module({
-  imports: [],
-  controllers: [StreamersController],
-  providers: [PrismaService, StreamersService],
+  imports: [StreamersModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

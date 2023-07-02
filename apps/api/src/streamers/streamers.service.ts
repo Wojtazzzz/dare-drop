@@ -7,25 +7,26 @@ export class StreamersService {
   constructor(private prisma: PrismaService) {}
 
   async getStreamers(params?: {
+    // for future pagination, searching etc
     skip?: number;
     take?: number;
     cursor?: Prisma.StreamerWhereUniqueInput;
     where?: Prisma.StreamerWhereInput;
     orderBy?: Prisma.StreamerOrderByWithRelationInput;
   }): Promise<Streamer[]> {
-    return this.prisma.streamer.findMany(params);
+    return await this.prisma.streamer.findMany(params);
   }
 
-  async getStreamerById(
-    streamerWhereUniqueInput: Prisma.StreamerWhereUniqueInput,
-  ): Promise<Streamer | null> {
-    return this.prisma.streamer.findUnique({
-      where: streamerWhereUniqueInput,
+  async getStreamerById(id: number): Promise<Streamer | null> {
+    return await this.prisma.streamer.findUnique({
+      where: {
+        id,
+      },
     });
   }
 
   async createStreamer(data: Prisma.StreamerCreateInput): Promise<Streamer> {
-    return this.prisma.streamer.create({
+    return await this.prisma.streamer.create({
       data,
     });
   }

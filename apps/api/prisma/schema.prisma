@@ -15,7 +15,7 @@ model Streamer {
   name String
   description String
   platform String // should be enum, but SQLite not supports enums
-  image String
+  image String?
   votes Vote[]
 }
 

@@ -76,7 +76,7 @@ export const StreamersList = () => {
 										>
 											<a
 												href={`/streamer/${id}`}
-												className="underline"
+												className="px-3 py-2 underline"
 											>
 												{name}
 											</a>
@@ -94,7 +94,7 @@ export const StreamersList = () => {
 										</Typography>
 									</td>
 									<td className={classes}>
-										<div className="flex w-full justify-center gap-3">
+										<div className="flex w-full items-center justify-center gap-3">
 											<Typography
 												variant="small"
 												color="blue-gray"
@@ -105,7 +105,7 @@ export const StreamersList = () => {
 
 											<button
 												aria-label={`Vote for ${name}`}
-												className="mt-0.5"
+												className="px-2 py-1"
 												onClick={() => voteFor(id)}
 											>
 												<ArrowUp />

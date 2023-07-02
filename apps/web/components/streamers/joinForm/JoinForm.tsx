@@ -1,7 +1,7 @@
 'use client';
 
 import { ErrorMessage, Formik } from 'formik';
-import { Input, Button, Textarea, Alert } from '@material-tailwind/react';
+import { Input, Button, Textarea } from '@material-tailwind/react';
 import { useJoinForm } from './useJoinForm';
 import { joinFormSchema } from './joinFormSchema';
 import { ValidationError } from './ValidationError';

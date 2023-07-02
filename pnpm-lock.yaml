@@ -50,9 +50,6 @@ importers:
       reflect-metadata:
         specifier: ^0.1.13
         version: 0.1.13
-      request-ip:
-        specifier: ^3.3.0
-        version: 3.3.0
       rxjs:
         specifier: ^7.2.0
         version: 7.8.1
@@ -75,9 +72,6 @@ importers:
       '@types/node':
         specifier: 18.16.12
         version: 18.16.12
-      '@types/request-ip':
-        specifier: ^0.0.38
-        version: 0.0.38
       '@types/supertest':
         specifier: ^2.0.11
         version: 2.0.11
@@ -1671,12 +1665,6 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
-    dev: true
-
-  /@types/request-ip@0.0.38:
-    resolution: {integrity: sha512-1yeq8UuK/tUBqLXRY24gjeFvrSNaGNcOcZLQjHlnuw8iu+qE/vTQ64TUcLWorr607NKLfFakdoYEXXHXrLLKCw==}
-    dependencies:
-      '@types/node': 17.0.45
     dev: true
 
   /@types/scheduler@0.16.3:
@@ -6440,10 +6428,6 @@ packages:
 
   /remove-accents@0.4.2:
     resolution: {integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==}
-    dev: false
-
-  /request-ip@3.3.0:
-    resolution: {integrity: sha512-cA6Xh6e0fDBBBwH77SLJaJPBmD3nWVAcF9/XAcsrIHdjhFzFiB5aNQFytdjCGPezU3ROwrR11IddKAM08vohxA==}
     dev: false
 
   /require-directory@2.1.1:

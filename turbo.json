@@ -10,6 +10,9 @@
         "dev": {
             "cache": false,
             "persistent": true
+        },
+        "start": {
+            "cache": true
         }
     },
     "globalEnv": ["NEXT_PUBLIC_APP_URL", "NEXT_PUBLIC_API_URL"]

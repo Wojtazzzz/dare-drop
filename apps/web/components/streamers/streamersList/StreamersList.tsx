@@ -1,13 +1,16 @@
 'use client';
 
-import { Alert, Card, Typography } from '@material-tailwind/react';
+import { Card, Typography } from '@material-tailwind/react';
 import { useStreamersList } from './useStreamersList';
 import { SpinnerLoader } from '../../inc/SpinnerLoader';
 import { ArrowUp } from '../../icons/ArrowUp';
 import { useVoteFor } from './useVoteFor';
+import { ErrorAlert } from '../../inc/alerts/ErrorAlert';
+import { InfoAlert } from '../../inc/alerts/InfoAlert';
+import { SuccessAlert } from '../../inc/alerts/SuccessAlert';
 
 export const StreamersList = () => {
-	const { data, isLoading, isError } = useStreamersList();
+	const { data, isLoading, isError, isSuccess } = useStreamersList();
 	const {
 		voteFor,
 		isSuccess: IsVoteSuccess,
@@ -16,27 +19,20 @@ export const StreamersList = () => {
 	} = useVoteFor();
 
 	if (isLoading) return <SpinnerLoader />;
-
-	if (isError) {
+	if (isError)
 		return (
-			<Alert color="red" variant="gradient">
-				<span>Something went wrong, please try again later</span>
-			</Alert>
+			<ErrorAlert message="Something went wrong, please try again later" />
 		);
+	if (isSuccess && data.length <= 0) {
+		return <InfoAlert message="There is no streamers on list :(" />;
 	}
 
 	return (
 		<div className="flex flex-col gap-y-4">
-			{isVoteError && (
-				<Alert color="red" variant="gradient">
-					<span>{voteError}</span>
-				</Alert>
-			)}
+			{isVoteError && <ErrorAlert message={voteError} />}
 
 			{IsVoteSuccess && (
-				<Alert color="green" variant="gradient">
-					<span>You have voted for your favourite streamer</span>
-				</Alert>
+				<SuccessAlert message="You have voted for your favourite streamer" />
 			)}
 
 			<Card className="h-full w-full overflow-scroll">

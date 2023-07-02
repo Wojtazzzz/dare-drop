@@ -12,10 +12,14 @@ export class StreamersService {
     take?: number;
     cursor?: Prisma.StreamerWhereUniqueInput;
     where?: Prisma.StreamerWhereInput;
-    orderBy?: Prisma.StreamerOrderByWithRelationInput;
   }): Promise<Streamer[]> {
     return await this.prisma.streamer.findMany({
       ...params,
+      orderBy: {
+        votes: {
+          _count: 'desc',
+        },
+      },
       include: {
         votes: true,
       },

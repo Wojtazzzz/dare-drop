@@ -8,6 +8,8 @@ import { ValidationError } from './ValidationError';
 import { SelectPlatform } from './selectPlatform/SelectPlatform';
 import { Container } from '../../inc/Container';
 import type { JoinUsFormValues } from '../../../utils/types';
+import { ErrorAlert } from '../../inc/alerts/ErrorAlert';
+import { SuccessAlert } from '../../inc/alerts/SuccessAlert';
 
 export const JoinForm = () => {
 	const { submit, isSuccess, isError, error } = useJoinForm();
@@ -33,16 +35,10 @@ export const JoinForm = () => {
 			}) => (
 				<Container size="md">
 					<div className="flex flex-col gap-y-8">
-						{isError && (
-							<Alert color="red" variant="gradient">
-								<span>{error}</span>
-							</Alert>
-						)}
+						{isError && <ErrorAlert message={error} />}
 
 						{isSuccess && (
-							<Alert color="green" variant="gradient">
-								<span>Streamer created successfully</span>
-							</Alert>
+							<SuccessAlert message="Streamer created successfully" />
 						)}
 
 						<form
@@ -114,7 +110,7 @@ export const JoinForm = () => {
 								fullWidth
 								disabled={isSubmitting}
 							>
-								Register
+								Create
 							</Button>
 						</form>
 					</div>

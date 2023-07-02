@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { API_URL } from '../../../utils/env';
+import { notFound } from 'next/navigation';
 
 type StreamerPageProps = {
 	params: {
@@ -12,13 +13,23 @@ const fetchStreamer = async (streamerId) => {
 		next: { revalidate: 10 },
 	});
 
+	if (!response.ok) {
+		return null;
+	}
+
 	return response.json();
 };
 
 export default async function StreamerPage({
 	params: { id },
 }: StreamerPageProps) {
-	const { name, platform, description, image } = await fetchStreamer(id);
+	const streamer = await fetchStreamer(id);
+
+	if (!streamer) {
+		notFound();
+	}
+
+	const { image, name, platform, description } = streamer;
 
 	return (
 		<div className="flex flex-col items-center gap-5 md:flex-row md:items-start">

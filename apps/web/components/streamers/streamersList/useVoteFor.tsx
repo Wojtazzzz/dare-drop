@@ -1,15 +1,7 @@
 import { useMutation, useQueryClient } from 'react-query';
 import { getStreamersQK } from '../../../utils/queryKeys';
 import { axios } from '../../../utils/axios';
-import * as Yup from 'yup';
-
-const errorSchema = Yup.object({
-	response: Yup.object({
-		data: Yup.object({
-			message: Yup.string(),
-		}),
-	}),
-});
+import { getErrorMessage } from '../../../utils/getErrorMessage';
 
 export const useVoteFor = () => {
 	const queryClient = useQueryClient();
@@ -29,17 +21,9 @@ export const useVoteFor = () => {
 		mutate(streamerId);
 	};
 
-	let errorMessage = '';
-
-	if (isError) {
-		errorMessage = errorSchema.isValidSync(error)
-			? error.response.data.message
-			: 'Something went wrong, please try again later';
-	}
-
 	return {
 		voteFor,
-		errorMessage,
+		error: getErrorMessage(error),
 		isError,
 		isSuccess,
 	};

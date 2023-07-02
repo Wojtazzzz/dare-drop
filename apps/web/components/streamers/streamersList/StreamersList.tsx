@@ -12,20 +12,24 @@ export const StreamersList = () => {
 		voteFor,
 		isSuccess: IsVoteSuccess,
 		isError: isVoteError,
-		errorMessage: voteErrorMessage,
+		error: voteError,
 	} = useVoteFor();
 
 	if (isLoading) return <SpinnerLoader />;
 
 	if (isError) {
-		return <span>IsError...</span>;
+		return (
+			<Alert color="red" variant="gradient">
+				<span>Something went wrong, please try again later</span>
+			</Alert>
+		);
 	}
 
 	return (
 		<div className="flex flex-col gap-y-4">
 			{isVoteError && (
 				<Alert color="red" variant="gradient">
-					<span>{voteErrorMessage}</span>
+					<span>{voteError}</span>
 				</Alert>
 			)}
 

@@ -3,7 +3,6 @@
 import { NavItem } from '../NavItem';
 import { useMobileNav } from './useMobileNav';
 import links from '../links.json';
-import { LinkAsButton } from '../../LinkAsButton';
 import { Bars } from '../../../icons/Bars';
 import { Times } from '../../../icons/Times';
 import clsx from 'clsx';
@@ -15,7 +14,9 @@ export const MobileNav = () => {
 		<div className="lg:hidden">
 			<button
 				ref={navButtonRef}
-				aria-label={isNavActive ? 'Close navigation' : 'Open navigation'}
+				aria-label={
+					isNavActive ? 'Close navigation' : 'Open navigation'
+				}
 				aria-expanded={isNavActive}
 				aria-controls="mobile-navigation"
 				className="relative z-50 rounded p-2"
@@ -35,7 +36,11 @@ export const MobileNav = () => {
 						<ul role="list" className="w-full space-y-4">
 							{links.map(({ link, label }, key) => (
 								<li key={key}>
-									<NavItem link={link} label={label} onClick={closeNav} />
+									<NavItem
+										link={link}
+										label={label}
+										onClick={closeNav}
+									/>
 								</li>
 							))}
 						</ul>

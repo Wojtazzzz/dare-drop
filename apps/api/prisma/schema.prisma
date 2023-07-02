@@ -22,6 +22,6 @@ model Streamer {
 model Vote {
   id Int @default(autoincrement()) @id
   ip String
-  streamer Streamer @relation(fields: [streamerId], references: [id])
+  streamer Streamer @relation(fields: [streamerId], references: [id], onDelete: Cascade)
   streamerId Int
 }

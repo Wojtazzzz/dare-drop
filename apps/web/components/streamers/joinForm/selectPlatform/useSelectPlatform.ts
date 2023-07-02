@@ -1,5 +1,5 @@
 import { useFormikContext } from 'formik';
-import type { JoinUsFormValues, Platform } from '../../../utils/types';
+import type { JoinUsFormValues, Platform } from '../../../../utils/types';
 
 export const useSelectPlatform = () => {
 	const {

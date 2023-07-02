@@ -20,7 +20,7 @@ export const SelectPlatform = () => {
 		>
 			<Option value="twitch">Twitch</Option>
 			<Option value="youtube">YouTube</Option>
-			<Option value="tiktot">TikTok</Option>
+			<Option value="tiktok">TikTok</Option>
 			<Option value="kick">Kick</Option>
 			<Option value="rumble">Rumble</Option>
 		</Select>

@@ -1,15 +1,14 @@
-import type { JoinUsFormValues } from '../../../utils/types';
 import { useMutation, useQueryClient } from 'react-query';
 import { getStreamersQK } from '../../../utils/queryKeys';
 import { axios } from '../../../utils/axios';
 import { getErrorMessage } from '../../../utils/getErrorMessage';
 
-export const useJoinForm = () => {
+export const useVoteFor = () => {
 	const queryClient = useQueryClient();
 
 	const { error, isError, isSuccess, mutate } = useMutation(
-		async (payload: JoinUsFormValues) => {
-			return await axios.post('/streamers', payload);
+		async (streamerId: number) => {
+			return await axios.post(`/streamers/${streamerId}/vote`);
 		},
 		{
 			onSuccess: () => {
@@ -18,16 +17,12 @@ export const useJoinForm = () => {
 		}
 	);
 
-	const submit = async (values: JoinUsFormValues, resetForm: () => void) => {
-		mutate(values, {
-			onSuccess() {
-				resetForm();
-			},
-		});
+	const voteFor = (streamerId: number) => {
+		mutate(streamerId);
 	};
 
 	return {
-		submit,
+		voteFor,
 		error: getErrorMessage(error),
 		isError,
 		isSuccess,

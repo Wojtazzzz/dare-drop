@@ -1,3 +1,3 @@
-export default function Page() {
-	return <span>Hello World</span>;
-}
+import StreamersPage from './streamers/page';
+
+export default StreamersPage;

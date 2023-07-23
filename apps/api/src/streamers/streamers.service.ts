@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import type { Prisma, Streamer } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
 import { PrismaService } from '../helpers/prisma.service';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class StreamersService {
     take?: number;
     cursor?: Prisma.StreamerWhereUniqueInput;
     where?: Prisma.StreamerWhereInput;
-  }): Promise<Streamer[]> {
+  }) {
     return await this.prisma.streamer.findMany({
       ...params,
       orderBy: {
@@ -26,21 +26,21 @@ export class StreamersService {
     });
   }
 
-  async getStreamerById(id: number): Promise<Streamer | null> {
-    return await this.prisma.streamer.findUnique({
+  getStreamerById(id: number) {
+    return this.prisma.streamer.findUnique({
       where: {
         id,
       },
     });
   }
 
-  async createStreamer(data: Prisma.StreamerCreateInput): Promise<Streamer> {
-    return await this.prisma.streamer.create({
+  createStreamer(data: Prisma.StreamerCreateInput) {
+    return this.prisma.streamer.create({
       data,
     });
   }
 
-  async checkStreamerExists(id: number): Promise<boolean> {
+  async checkStreamerExists(id: number) {
     const count = await this.prisma.streamer.count({
       where: {
         id,

@@ -8,7 +8,6 @@ import {
   ParseIntPipe,
   Post,
 } from '@nestjs/common';
-import type { Streamer } from '@prisma/client';
 import { StreamersService } from './streamers.service';
 import { CreateStreamerDto } from './dto/create-streamer.dto';
 
@@ -17,8 +16,8 @@ export class StreamersController {
   constructor(private readonly streamersService: StreamersService) {}
 
   @Get('/streamers')
-  async index(): Promise<Streamer[]> {
-    return await this.streamersService.getStreamers();
+  index() {
+    return this.streamersService.getStreamers();
   }
 
   @Get('/streamer/:id')
@@ -28,7 +27,7 @@ export class StreamersController {
       new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
     )
     id: number,
-  ): Promise<Streamer> {
+  ) {
     const streamer = await this.streamersService.getStreamerById(id);
 
     if (!streamer) {
@@ -39,7 +38,7 @@ export class StreamersController {
   }
 
   @Post('/streamers')
-  async create(@Body() data: CreateStreamerDto): Promise<Streamer> {
-    return await this.streamersService.createStreamer(data);
+  create(@Body() data: CreateStreamerDto) {
+    return this.streamersService.createStreamer(data);
   }
 }

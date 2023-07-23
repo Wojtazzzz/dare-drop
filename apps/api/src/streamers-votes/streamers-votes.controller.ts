@@ -8,7 +8,6 @@ import {
   Post,
 } from '@nestjs/common';
 import { StreamersVotesService } from './streamers-votes.service';
-import type { Vote } from '@prisma/client';
 import { StreamersService } from '../streamers/streamers.service';
 
 @Controller('/streamers')
@@ -26,7 +25,7 @@ export class StreamersVotesController {
     )
     streamerId: number,
     @Ip() ip: string,
-  ): Promise<Vote> {
+  ) {
     const isStreamerExists = await this.streamersService.checkStreamerExists(
       streamerId,
     );

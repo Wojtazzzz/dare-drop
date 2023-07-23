@@ -7,13 +7,13 @@ import type { CreateStreamerVotePayloadDto } from './dto/create-streamer-vote.dt
 export class StreamersVotesService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(data: CreateStreamerVotePayloadDto): Promise<Vote> {
+  async create(data: CreateStreamerVotePayloadDto) {
     return this.prisma.vote.create({
       data,
     });
   }
 
-  async checkIsFirstUserVote(ip: string, streamerId: number): Promise<boolean> {
+  async checkIsFirstUserVote(ip: string, streamerId: number) {
     const count = await this.prisma.vote.count({
       where: {
         streamerId,
